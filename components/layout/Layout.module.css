@@ -1,0 +1,48 @@
+.main {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  text-align: center;
+  background-color: #282c34;
+}
+
+.HeaderComponent,
+.Container {
+  max-width: 90vw;
+  width: inherit;
+  display: flex;
+}
+
+.HeaderComponent {
+  background-color: #3bbab4;
+  justify-content: space-between;
+  font-size: 2.5rem;
+}
+
+.TitleComponent {
+  align-self: center;
+  margin: 0 1rem;
+}
+
+.Container {
+  justify-content: space-around;
+  border-radius: 0 0 1rem 1rem;
+  background-color: #98dcb0;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 770px) {
+  .Container {
+    height: 50vh;
+    width: inherit;
+  }
+
+  .HeaderComponent,
+  .Container {
+    max-width: 1280px;
+  }
+}

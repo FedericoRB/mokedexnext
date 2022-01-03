@@ -1,0 +1,33 @@
+.AbilityContainer {
+  transition: all 1s ease-in;
+  width: 95%;
+  min-width: 50vw;
+  border: 1px solid #3bbab4;
+  border-radius: 2rem;
+  margin: 0.25vw auto;
+  background: rgb(255, 255, 255, 25%);
+  cursor: pointer;
+}
+
+.AbilityName {
+  font-weight: bold;
+}
+
+.AbilityDesc {
+  font-size: 1rem;
+  padding: 5px;
+}
+
+@media only screen and (min-width: 770px) {
+  .AbilityContainer {
+    overflow: hidden;
+    min-height: 5vh;
+    max-height: 15vh;
+    min-width: unset;
+  }
+
+  .AbilityContainer:hover {
+    /* overflow: scroll; */
+    max-height: 45vh;
+  }
+}

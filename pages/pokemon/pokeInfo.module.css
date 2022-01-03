@@ -1,0 +1,78 @@
+.InfoContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.ImageContainer {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 1vh;
+}
+
+.PokeImage {
+  width: inherit;
+  max-width: 60vw;
+}
+
+.DataContainer {
+  display: flex;
+  height: inherit;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 1vh;
+}
+
+.PokeNameOverlay {
+  color: gray;
+  font-weight: bold;
+  width: 80%;
+  font-size: 2rem;
+  background-color: rgb(255, 255, 255, 30%);
+  border-radius: 0 0 1rem 1rem;
+}
+
+.LangContainer {
+  width: inherit;
+  max-width: inherit;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  z-index: 1;
+}
+
+.LangSelect {
+  border: none;
+  border-radius: 0 0.5rem;
+  font-size: 25px;
+  background: rgb(0, 0, 0, 35%);
+  margin: 0.5rem 1rem;
+}
+
+@media only screen and (min-width: 770px) {
+  .InfoContainer {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .ImageContainer {
+    width: 50%;
+  }
+
+  .PokeNameOverlay {
+    font-size: 3rem;
+  }
+
+  .DataContainer {
+    width: 50%;
+    justify-content: center;
+  }
+}
