@@ -27,7 +27,6 @@
   }
 
   .AbilityContainer:hover {
-    /* overflow: scroll; */
     max-height: 45vh;
   }
 }

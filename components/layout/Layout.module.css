@@ -8,6 +8,7 @@
   font-size: calc(10px + 2vmin);
   text-align: center;
   background-color: #282c34;
+  padding: 1rem 0;
 }
 
 .HeaderComponent,

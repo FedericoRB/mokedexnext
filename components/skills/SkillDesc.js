@@ -7,8 +7,6 @@ export default function SkillDesc({ skillUrl, lang }) {
   const [skillDesc, setDesc] = useState(null);
 
   useEffect(() => {
-    setName(null);
-    setDesc(null);
     pokeApiSvc
       .getAbilityDesc({ skillUrl, lang })
       .then(({ skillName, skillDesc }) => {
@@ -20,12 +18,8 @@ export default function SkillDesc({ skillUrl, lang }) {
 
   return (
     <div className={styles.AbilityContainer}>
-      <div className={styles.AbilityName}>
-        {!skillName ? "No disponible" : skillName}
-      </div>
-      <div className={styles.AbilityDesc}>
-        {!skillDesc ? "No disponible" : skillDesc}
-      </div>
+      <div className={styles.AbilityName}>{skillName}</div>
+      <div className={styles.AbilityDesc}>{skillDesc}</div>
     </div>
   );
 }

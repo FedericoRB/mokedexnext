@@ -29,8 +29,6 @@ async function getPokeInfo({ pokeName }) {
 }
 
 async function getPokeDetails({ pokeName }) {
-  // if (!pokeName) return;
-
   const fetchData = await fetch(apiUrl + pokeName)
     .then((res) => res.json())
     .catch((error) => console.log(error));
@@ -48,15 +46,20 @@ async function getAbilityDesc({ skillUrl, lang }) {
     .then((res) => res.json())
     .catch((error) => console.log(error));
 
-  const skillName = fetchData.names.filter(
+  const filterName = fetchData.names.filter(
     (eachName) => eachName.language.name === lang
   );
-  const skillDesc = fetchData.effect_entries.filter(
+  const filterDesc = fetchData.effect_entries.filter(
     (effect) => effect.language.name === lang
   );
 
+  const skillName =
+    filterName.length === 0 ? "No Disponible" : filterName[0].name;
+  const skillDesc =
+    filterDesc.length === 0 ? "No Disponible" : filterDesc[0].effect;
+
   return {
-    skillName: skillName[0].name,
-    skillDesc: skillDesc[0].effect,
+    skillName,
+    skillDesc,
   };
 }

@@ -3,6 +3,7 @@ import { pokeApiSvc } from "../services/pokeApi.service";
 import PreviewCoponent from "../components/previewComp/PreviewComponent";
 
 import styles from "../styles/Home.module.css";
+import Spinner from "../components/spinner/Spinner";
 
 export default function Home() {
   const [pokes, setPokes] = useState(null);
@@ -33,7 +34,7 @@ export default function Home() {
       return;
     }
 
-    const pokeFiltered = pokes.filter((eachPoke) =>
+    const pokeFiltered = originalPokes.filter((eachPoke) =>
       eachPoke.name.includes(filterValue)
     );
 
@@ -45,39 +46,36 @@ export default function Home() {
     setPokes(pokeFiltered);
   }, [filterValue]);
 
+  if (!pokes) return <Spinner />;
+
   return (
-    pokes && (
-      <>
-        <div className={styles.Controls}>
-          <div
-            className={styles.PrevBtn}
-            onClick={() => {
-              prevUrl ? setCurrentUrl(prevUrl) : void 0;
-            }}
-          >
-            ❮
-          </div>
-          <div
-            className={styles.NextBtn}
-            onClick={() => setCurrentUrl(nextUrl)}
-          >
-            ❯
-          </div>
+    <>
+      <div className={styles.Controls}>
+        <div
+          className={styles.PrevBtn}
+          onClick={() => {
+            prevUrl ? setCurrentUrl(prevUrl) : void 0;
+          }}
+        >
+          ❮
         </div>
-        <div className={styles.FilterContainer}>
-          <input
-            className={styles.FilterInput}
-            type="text"
-            placeholder="Filtrar"
-            onKeyUp={(e) => setFilter(e.target.value)}
-          />
+        <div className={styles.NextBtn} onClick={() => setCurrentUrl(nextUrl)}>
+          ❯
         </div>
-        <div className={styles.SliderContainer}>
-          {pokes.map((eachPoke, index) => (
-            <PreviewCoponent key={index} pokeName={eachPoke.name} />
-          ))}
-        </div>
-      </>
-    )
+      </div>
+      <div className={styles.FilterContainer}>
+        <input
+          className={styles.FilterInput}
+          type="text"
+          placeholder="Filtrar"
+          onKeyUp={(e) => setFilter(e.target.value)}
+        />
+      </div>
+      <div className={styles.SliderContainer}>
+        {pokes.map((eachPoke, index) => (
+          <PreviewCoponent key={index} pokeName={eachPoke.name} />
+        ))}
+      </div>
+    </>
   );
 }

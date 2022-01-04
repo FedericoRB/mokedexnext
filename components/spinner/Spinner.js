@@ -8,6 +8,8 @@ export default function Spinner() {
       <Image
         className={styles.pokeLoaderImage}
         src={LoaderImage}
+        width={50}
+        height={50}
         alt="loading..."
       />
     </div>
